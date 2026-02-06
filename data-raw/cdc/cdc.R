@@ -46,6 +46,8 @@ cdc_prep <- cdc_raw |>
       COSEWIC == "Data Deficient" ~ "DD",
       COSEWIC == "Extinct" ~ "X",
       COSEWIC == "Extirpated" ~ "XT",
+      # Complex multi-status (e.g., Chinook with multiple population statuses)
+      COSEWIC == "Endangered / Threatened / Special Concern / Data Deficient / Not at Risk" ~ "E/T/SC/DD/NAR",
       TRUE ~ COSEWIC
     ),
     `SARA Status` = case_when(
