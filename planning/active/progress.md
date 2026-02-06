@@ -20,3 +20,22 @@
 - Full column audit of current cdc.csv
 - Review Lucy's cdc.Rmd in detail
 - Download fresh CDC export for comparison
+
+## Phase 1: Analysis (continued)
+
+### Current cdc.csv Structure
+- 550 species total
+- 45 columns 
+- Key columns: Species Code (primary key), Element Code, Scientific Name, COSEWIC, SARA, BC List
+- Last updated: 2020-05-28
+
+### Created data-raw/cdc/cdc.R
+- Scaffolded wrangling script based on Lucy's R/cdc.Rmd
+- Handles COSEWIC/SARA abbreviations and date formatting
+- Column renaming for CDC export format changes
+- Maintains column order compatibility
+
+### Next: Need actual CDC export
+- CDC website: https://a100.gov.bc.ca/pub/eswp/
+- Export type: Summary Data (per Lucy's findings)
+- Need to download or access Lucy's raw export for comparison
