@@ -29,6 +29,16 @@ message("Raw data: ", nrow(cdc_raw), " species, ", ncol(cdc_raw), " columns")
 # Save intermediate CSV
 write_csv(cdc_raw, "data-raw/cdc/cdc_summary_export.csv")
 
+# === Archive existing cdc.csv before overwriting ===
+if (file.exists("data-raw/cdc/cdc.csv")) {
+  archive_name <- paste0("data-raw/cdc/archive/cdc_", format(Sys.Date(), "%Y%m%d"), ".csv")
+  if (!dir.exists("data-raw/cdc/archive")) dir.create("data-raw/cdc/archive")
+  if (!file.exists(archive_name)) {
+    file.copy("data-raw/cdc/cdc.csv", archive_name)
+    message("Archived existing cdc.csv to ", archive_name)
+  }
+}
+
 # === Load reference (old cdc.csv) ===
 cdc_old <- read_csv("data-raw/cdc/cdc.csv", show_col_types = FALSE)
 
