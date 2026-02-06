@@ -16,6 +16,6 @@ test_that("cdc", {
   expect_true(chk::vld_unique(cdc$`Species Code`))
   expect_true(chk::vld_subset(
     cdc$`BC List`,
-    c("Blue", "Exotic", "Extinct", "No Status", "Red", "Unknown", "Yellow")
+    c("Blue", "Exotic", "Extinct", "No Status", "Not Reviewed", "Red", "Unknown", "Yellow")
   ))
 })
